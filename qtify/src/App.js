@@ -94,21 +94,8 @@ function App() {
       console.log("key: ", key);
       return song.genre.key === key;
     });
-
-    // console.log(
-    //   "generateNewSongs triggered and filtered this Data: ",
-    //   newSongsArray
-    // );
     setFilteredData(newSongsArray);
   };
-  //rock pop jazz blues
-
-  //to handle any change in the selected tab of the songs section and call the generateNewSongs
-  // const handleChangeIndex = async (newValue) => {
-  //   console.log("handleChangeIndex triggered with newValue: ", newValue);
-  //   setValue(newValue);
-  //   generateNewSongs(newValue);
-  // };
 
   useEffect(() => {
     generateTopAlbumSongs();
@@ -122,7 +109,7 @@ function App() {
       <Hero />
       <div className="sectionWrapper">
         <Section type="album" title="Top Albums" data={topAlbumSongs} />
-        <Section type="album" title="New Albums" data={newAlbumSongs} />
+        {/* <Section type="album" title="New Albums" data={newAlbumSongs} /> */}
         {/* <FilterSection
           type="song"
           title="Songs"
