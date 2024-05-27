@@ -16,7 +16,7 @@ import logo from "./logo.svg";
 import Navbar from "./components/navbar/navbar";
 import Hero from "./components/Hero/hero";
 import Section from "./components/section/section";
-// import FilterSection from "./components/FilterSection/FilterSection";
+import FilterSection from "./components/filtersection/filtersection";
 import {
   fetchTopAlbums,
   fetchNewAlbums,
@@ -97,6 +97,11 @@ function App() {
     setFilteredData(newSongsArray);
   };
 
+  const handleChangeIndex = async (newValue) => {
+    console.log("handleChangeIndex triggered with newValue: ", newValue);
+    setValue(newValue);
+    generateNewSongs(newValue);
+  };
   useEffect(() => {
     generateTopAlbumSongs();
     generateNewAlbumSongs();
@@ -109,14 +114,14 @@ function App() {
       <Hero />
       <div className="sectionWrapper">
         <Section type="album" title="Top Albums" data={topAlbumSongs} />
-        {/* <Section type="album" title="New Albums" data={newAlbumSongs} /> */}
-        {/* <FilterSection
+        <Section type="album" title="New Albums" data={newAlbumSongs} />
+        <FilterSection
           type="song"
           title="Songs"
           value={value}
           filteredData={filteredData}
           handleChangeIndex={handleChangeIndex}
-        /> */}
+        />
       </div>
     </div>
   );
